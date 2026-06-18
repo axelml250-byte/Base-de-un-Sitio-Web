@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiTienda | Productos</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <h1 class="logo">MiTienda</h1>
+            <nav class="nav-menu">
+                <a href="index.html">Inicio</a>
+                <a href="productos.html" class="active">Productos</a>
+                <a href="nosotros.html">Conócenos</a>
+                <a href="contacto.html">Contacto</a>
+                <div class="cart-icon-container">
+                    <button id="cart-toggle-btn">
+                        🛒 Carrito (<span id="cart-counter">0</span>)
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="catalog-section">
+            <h2>Catálogo de Productos</h2>
+            <p style="margin-bottom: 20px; color: #666;">Explora nuestra variedad completa de artículos disponibles.</p>
+            
+            <div id="products-grid" class="products-grid">
+                <!-- Producto 1 -->
+                <article class="product-card">
+                    <img src="https://via.placeholder.com/250" alt="Producto 1" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Playera Confort</h3>
+                        <p class="product-price">$299.00</p>
+                        <button class="add-to-cart-btn" data-id="1">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="product-card">
+                    <img src="https://via.placeholder.com/250" alt="Producto 2" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Sudadera Urbana</h3>
+                        <p class="product-price">$599.00</p>
+                        <button class="add-to-cart-btn" data-id="2">Agregar al carrito</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Carrito Aside -->
+        <aside id="shopping-cart-aside" class="cart-aside hidden">
+            <div class="cart-header">
+                <h3>Tu Carrito</h3>
+                <button id="close-cart-btn">X</button>
+            </div>
+            <ul id="cart-items-list" class="cart-items-list"></ul>
+            <div class="cart-footer">
+                <p class="cart-total-text">Total: $<span id="cart-total-amount">0.00</span></p>
+                <button id="checkout-btn" class="checkout-btn">Proceder al pago</button>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-info">
+            <p>📍 Ciudad de México, CDMX | 📧 contacto@mitienda.com | 📞 +52 55 1234 5678</p>
+        </div>
+        <p class="copyright">&copy; 2026 MiTienda E-Commerce. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="carrito.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiTienda | Contacto</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <h1 class="logo">MiTienda</h1>
+            <nav class="nav-menu">
+                <a href="index.html">Inicio</a>
+                <a href="productos.html">Productos</a>
+                <a href="nosotros.html">Conócenos</a>
+                <a href="contacto.html" class="active">Contacto</a>
+                <div class="cart-icon-container">
+                    <button id="cart-toggle-btn">
+                        🛒 Carrito (<span id="cart-counter">0</span>)
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="contact-section">
+            <h2>Ponte en Contacto</h2>
+            <p>Estamos aquí para escucharte. Puedes comunicarte con nosotros a través de cualquiera de nuestros canales oficiales:</p>
+            
+            <div class="contact-channels" style="margin: 20px 0; font-size: 16px; line-height: 2;">
+                <p><strong>📞 Teléfono:</strong> +52 55 1234 5678</p>
+                <p><strong>📧 Correo Electrónico:</strong> contacto@mitienda.com</p>
+                <p><strong>📍 Ubicación Oficina Central:</strong> Ciudad de México, México.</p>
+            </div>
+
+            <!-- CONTENEDOR RESERVADO PARA GOOGLE MAPS -->
+            <div class="map-container" style="margin-top: 30px; background: #eaeaea; height: 350px; border-radius: 8px; display: flex; justify-content: center; align-items: center; border: 2px dashed #ccc;">
+                <p style="color: #666; font-weight: bold;">[ Espacio reservado para el Mapa de Google Maps ]</p>
+            </div>
+        </section>
+
+        <!-- Carrito Aside -->
+        <aside id="shopping-cart-aside" class="cart-aside hidden">
+            <div class="cart-header">
+                <h3>Tu Carrito</h3>
+                <button id="close-cart-btn">X</button>
+            </div>
+            <ul id="cart-items-list" class="cart-items-list"></ul>
+            <div class="cart-footer">
+                <p class="cart-total-text">Total: $<span id="cart-total-amount">0.00</span></p>
+                <button id="checkout-btn" class="checkout-btn">Proceder al pago</button>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-info">
+            <p>📍 Ciudad de México, CDMX | 📧 contacto@mitienda.com | 📞 +52 55 1234 5678</p>
+        </div>
+        <p class="copyright">&copy; 2026 MiTienda E-Commerce. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="carrito.js"></script>
+</body>
+</html>

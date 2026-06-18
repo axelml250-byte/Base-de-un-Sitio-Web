@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Base</title>
+    <!-- Vinculación del archivo de estilos -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <!-- CABECERA: Aquí irá el logo y el menú de navegación -->
+    <header class="main-header">
+        <div class="header-container">
+            <h1 class="logo">MiTienda</h1>
+            <nav class="nav-menu">
+                <a href="#">Inicio</a>
+                <a href="#">Productos</a>
+                <div class="cart-icon-container">
+                    <button id="cart-toggle-btn">
+                        🛒 Carrito (<span id="cart-counter">0</span>)
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL: Catálogo de productos -->
+    <main class="main-content">
+        <section class="catalog-section">
+            <h2>Nuestros Productos</h2>
+            
+            <!-- Contenedor dinámico donde JavaScript o el Backend pintarán las tarjetas de productos -->
+            <div id="products-grid" class="products-grid">
+                
+                <!-- Tarjeta de Producto de Ejemplo (Estructura Base) -->
+                <article class="product-card">
+                    <img src="https://via.placeholder.com/250" alt="Producto de ejemplo" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Producto de Muestra</h3>
+                        <p class="product-price">$299.00</p>
+                        <button class="add-to-cart-btn" data-id="1">Agregar al carrito</button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SECCIÓN DEL CARRITO (Ventana flotante o lateral oculta por defecto) -->
+        <aside id="shopping-cart-aside" class="cart-aside hidden">
+            <div class="cart-header">
+                <h3>Tu Carrito</h3>
+                <button id="close-cart-btn">X</button>
+            </div>
+            
+            <!-- Lista de productos agregados -->
+            <ul id="cart-items-list" class="cart-items-list">
+                <!-- JS meterá aquí los elementos dinámicamente -->
+            </ul>
+
+            <div class="cart-footer">
+                <p class="cart-total-text">Total: $<span id="cart-total-amount">0.00</span></p>
+                <button id="checkout-btn" class="checkout-btn">Proceder al pago</button>
+            </div>
+        </aside>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="main-footer">
+        <p>&copy; 2026 MiTienda E-Commerce. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Vinculación de la lógica en JavaScript (Al final para no retrasar la carga visual) -->
+    <script src="carrito.js"></script>
+</body>
+</html>

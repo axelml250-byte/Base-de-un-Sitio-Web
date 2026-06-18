@@ -233,3 +233,90 @@ body {
     font-size: 14px;
     margin-top: auto;
 }
+
+/* ==========================================
+   6. NUEVAS SECCIONES (HERO, ABOUT, CONTACT)
+   ========================================== */
+
+/* Bloque de Bienvenida Principal */
+.hero-section {
+    background-color: #2c3e50;
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    background-image: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://via.placeholder.com/1200x400');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+/* Botón de llamado a la acción (CTA) */
+.cta-btn {
+    display: inline-block;
+    background-color: #e74c3c;
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Secciones de texto (Nosotros y Contacto) */
+.about-section, .contact-section {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.about-section h2, .contact-section h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.about-text p, .contact-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.contact-info {
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+/* Pequeña etiqueta para productos estrella */
+.badge {
+    background-color: #e67e22;
+    color: white;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    align-self: flex-start;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.nav-menu a.active {
+    color: #3498db;
+    border-bottom: 2px solid #3498db;
+}

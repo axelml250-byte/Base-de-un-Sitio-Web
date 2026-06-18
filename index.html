@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Base</title>
-    <!-- Vinculación del archivo de estilos -->
+    <title>MiTienda | Inicio</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
-    <!-- CABECERA: Aquí irá el logo y el menú de navegación -->
+    <!-- CABECERA COMPARTIDA -->
     <header class="main-header">
         <div class="header-container">
             <h1 class="logo">MiTienda</h1>
             <nav class="nav-menu">
-                <a href="#">Inicio</a>
-                <a href="#">Productos</a>
+                <a href="index.html" class="active">Inicio</a>
+                <a href="productos.html">Productos</a>
+                <a href="nosotros.html">Conócenos</a>
+                <a href="contacto.html">Contacto</a>
                 <div class="cart-icon-container">
                     <button id="cart-toggle-btn">
                         🛒 Carrito (<span id="cart-counter">0</span>)
@@ -25,39 +26,50 @@
         </div>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL: Catálogo de productos -->
+    <!-- HERO SECTION: Bienvenida -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h2>Bienvenido a MiTienda</h2>
+            <p>Descubre diseños únicos y materiales de la más alta calidad pensados para ti.</p>
+            <a href="productos.html" class="cta-btn">Ver Catálogo Completo</a>
+        </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="main-content">
+
+        <section id="sobre-nosotros" class="about-section">
+            <h2>Quiénes Somos</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>En MiTienda nos apasiona crear prendas y productos textiles con identidad. Nos dedicamos a seleccionar los mejores materiales y marcas para ofrecerte piezas cómodas, duraderas y con un diseño excepcional que se adapta a tu estilo de vida.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- RESUMEN DE PRODUCTOS POPULARES -->
         <section class="catalog-section">
-            <h2>Nuestros Productos</h2>
-            
-            <!-- Contenedor dinámico donde JavaScript o el Backend pintarán las tarjetas de productos -->
+            <h2>Productos Populares</h2>
             <div id="products-grid" class="products-grid">
-                
-                <!-- Tarjeta de Producto de Ejemplo (Estructura Base) -->
                 <article class="product-card">
-                    <img src="https://via.placeholder.com/250" alt="Producto de ejemplo" class="product-img">
+                    <img src="https://via.placeholder.com/250" alt="Producto popular" class="product-img">
                     <div class="product-info">
-                        <h3 class="product-title">Producto de Muestra</h3>
-                        <p class="product-price">$299.00</p>
-                        <button class="add-to-cart-btn" data-id="1">Agregar al carrito</button>
+                        <span class="badge">Más vendido</span>
+                        <h3 class="product-title">Producto Estrella</h3>
+                        <p class="product-price">$349.00</p>
+                        <button class="add-to-cart-btn" data-id="101">Agregar al carrito</button>
                     </div>
                 </article>
-
             </div>
         </section>
 
-        <!-- SECCIÓN DEL CARRITO (Ventana flotante o lateral oculta por defecto) -->
+        <!-- CARRITO DE COMPRAS ASIDE (Debe estar en todos los archivos) -->
         <aside id="shopping-cart-aside" class="cart-aside hidden">
             <div class="cart-header">
                 <h3>Tu Carrito</h3>
                 <button id="close-cart-btn">X</button>
             </div>
-            
-            <!-- Lista de productos agregados -->
-            <ul id="cart-items-list" class="cart-items-list">
-                <!-- JS meterá aquí los elementos dinámicamente -->
-            </ul>
-
+            <ul id="cart-items-list" class="cart-items-list"></ul>
             <div class="cart-footer">
                 <p class="cart-total-text">Total: $<span id="cart-total-amount">0.00</span></p>
                 <button id="checkout-btn" class="checkout-btn">Proceder al pago</button>
@@ -65,12 +77,14 @@
         </aside>
     </main>
 
-    <!-- PIE DE PÁGINA -->
+    <!-- PIE DE PÁGINA ACTUALIZADO CON DATOS -->
     <footer class="main-footer">
-        <p>&copy; 2026 MiTienda E-Commerce. Todos los derechos reservados.</p>
+        <div class="footer-info">
+            <p>📍 Ciudad de México, CDMX | 📧 contacto@mitienda.com | 📞 +52 55 1234 5678</p>
+        </div>
+        <p class="copyright">&copy; 2026 MiTienda E-Commerce. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Vinculación de la lógica en JavaScript (Al final para no retrasar la carga visual) -->
     <script src="carrito.js"></script>
 </body>
 </html>

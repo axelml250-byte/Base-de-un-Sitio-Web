@@ -1,0 +1,21 @@
+# Configuración de entorno de Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Archivos basura del sistema operativo (Windows / Mac)
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Archivos temporales o de registro (Logs)
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Carpetas de node (por si a futuro usas paquetes)
+node_modules/
+dist/
+build/

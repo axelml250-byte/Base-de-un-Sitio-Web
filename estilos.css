@@ -1,0 +1,235 @@
+/* ==========================================
+   1. RESETEO GENERAL Y TIPOGRAFÍA
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   2. CABECERA (HEADER) ANIMADA
+   ========================================== */
+.main-header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #2c3e50;
+    font-size: 24px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #555;
+    margin-right: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #3498db;
+}
+
+/* Botón del Carrito en el Menú */
+#cart-toggle-btn {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+#cart-toggle-btn:hover {
+    background-color: #27ae60;
+}
+
+/* ==========================================
+   3. CONTENIDO PRINCIPAL Y CATÁLOGO (GRID)
+   ========================================== */
+.main-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+.catalog-section h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Rejilla de productos adaptable automática */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* Tarjeta de Producto */
+.product-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background-color: #eaeaea;
+}
+
+.product-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.product-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #e74c3c;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.add-to-cart-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #2980b9;
+}
+
+/* ==========================================
+   4. BARRA LATERAL DEL CARRITO (ASIDE)
+   ========================================== */
+.cart-aside {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    z-index: 200;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Clase de control que usaremos con JS para ocultarlo/mostrarlo */
+.cart-aside.hidden {
+    transform: translateX(100%);
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+#close-cart-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #999;
+}
+
+.cart-items-list {
+    list-style: none;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.cart-footer {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.cart-total-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout-btn {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ==========================================
+   5. PIE DE PÁGINA (FOOTER)
+   ========================================== */
+.main-footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    margin-top: auto;
+}

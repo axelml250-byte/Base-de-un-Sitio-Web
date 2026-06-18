@@ -320,3 +320,58 @@ body {
     color: #3498db;
     border-bottom: 2px solid #3498db;
 }
+
+/* ==========================================
+   7. RESPONSIVE DESIGN (DISEÑO PARA CELULARES)
+   ========================================== */
+
+/* Esto se activará SOLO en pantallas menores a 768px de ancho */
+@media (max-width: 768px) {
+    
+    /* 1. Hacemos que la cabecera se acomode en filas */
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .nav-menu a {
+        margin-right: 0; /* Quitamos el margen viejo para que no se descuadre */
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    /* 2. Reducimos el tamaño de la bienvenida para que no ocupe tanta pantalla */
+    .hero-section {
+        padding: 40px 15px;
+    }
+
+    .hero-content h2 {
+        font-size: 28px;
+    }
+
+    .hero-content p {
+        font-size: 15px;
+    }
+
+    /* 3. Ajustamos las secciones de texto y la cuadrícula de misión/visión */
+    .about-section, .contact-section {
+        padding: 20px;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr !important; /* En celular, Misión va arriba y Visión abajo */
+    }
+
+    /* 4. ¡Clave! El carrito ahora ocupará todo el ancho del celular para que sea cómodo picarle */
+    .cart-aside {
+        width: 100%;
+    }
+}

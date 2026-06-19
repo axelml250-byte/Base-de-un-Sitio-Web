@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiTienda | Mi Carrito</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <!-- CABECERA COMPARTIDA -->
+    <header class="main-header">
+        <div class="header-container">
+            <h1 class="logo">MiTienda</h1>
+            <nav class="nav-menu">
+                <a href="index.html">Inicio</a>
+                <a href="productos.html">Productos</a>
+                <a href="nosotros.html">Conócenos</a>
+                <a href="contacto.html">Contacto</a>
+                <!-- El botón ahora es un enlace simple a esta página -->
+                <a href="carrito.html" class="active" style="font-weight: bold; color: #2ecc71;">
+                    🛒 Mi Carrito (<span id="cart-counter">0</span>)
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL: Resumen de la compra -->
+    <main class="main-content">
+        <section class="checkout-section" style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.05);">
+            <h2>Resumen de tu Pedido</h2>
+            <p style="color: #666; margin-bottom: 20px;">Revisa los artículos de tu carrito antes de proceder al pago seguro.</p>
+
+            <!-- Tabla donde JavaScript listará los productos dinámicamente -->
+            <div style="overflow-x: auto; margin-bottom: 30px;">
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid #eee; background-color: #f8f9fa;">
+                            <th style="padding: 12px; color: #555;">Producto</th>
+                            <th style="padding: 12px; color: #555;">Precio</th>
+                            <th style="padding: 12px; color: #555;">Cantidad</th>
+                            <th style="padding: 12px; color: #555;">Subtotal</th>
+                            <th style="padding: 12px; color: #555;">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-carrito-body">
+                        <!-- JS inyectará las filas aquí -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Bloque del Total y Botón de Pago -->
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 15px;">
+                <h3 style="font-size: 22px; color: #2c3e50;">
+                    Total a Pagar: <span style="color: #e74c3c;">$<span id="cart-total-amount">0.00</span></span>
+                </h3>
+                
+                <!-- Este botón redirigirá a Mercado Pago en el futuro -->
+                <button id="checkout-btn" class="checkout-btn" style="max-width: 300px; padding: 15px 30px; font-size: 18px; box-shadow: 0 4px 6px rgba(46, 204, 113, 0.2);">
+                    🔒 Proceder al Pago con Mercado Pago
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-info">
+            <p>📍 Ciudad de México, CDMX | 📧 contacto@mitienda.com | 📞 +52 55 1234 5678</p>
+        </div>
+        <p class="copyright">&copy; 2026 MiTienda E-Commerce. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Cargamos el JS para controlar la tabla -->
+    <script src="carrito.js"></script>
+</body>
+</html>

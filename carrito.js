@@ -1,6 +1,9 @@
-// 1. INICIALIZACIÓN: Jalamos el carrito guardado en el navegador, si no hay nada, inicia vacío
-let carrito = JSON.parse(localStorage.getItem('productosCarrito')) || [];
+// 1. INICIALIZACIÓN CON FILTRO: Jalamos el carrito pero expulsamos de inmediato los que tengan cantidad 0
+let carrito = (JSON.parse(localStorage.getItem('productosCarrito')) || [])
+                .filter(item => item.cantidad > 0);
 
+// Después de filtrar, aseguramos que el localStorage quede limpio sin esos ceros
+localStorage.setItem('productosCarrito', JSON.stringify(carrito));
 // 2. REFERENCIAS GLOBALES
 const contadorCarrito = document.getElementById('cart-counter');
 const tablaBody = document.getElementById('tabla-carrito-body');
@@ -51,14 +54,19 @@ function agregarAlCarrito(producto) {
 // 5. FUNCIÓN PARA ACTUALIZAR EL CONTADOR DEL MENÚ
 function actualizarContadorVisual() {
     if (contadorCarrito) {
-        const totalPiezas = carrito.reduce((total, item) => total + item.cantidad, 0);
+        // Solo sumamos las cantidades de los productos que sean mayores a 0
+        const totalPiezas = carrito
+            .filter(item => item.cantidad > 0)
+            .reduce((total, item) => total + item.cantidad, 0);
+            
         contadorCarrito.textContent = totalPiezas;
     }
 }
 
-// 6. FUNCIÓN EXCLUSIVA PARA LA PÁGINA CARRITO.HTML (Dibuja la tabla)
+// =========================================================================
+// 6. FUNCIÓN REESCRITA: Dibuja la tabla con botones de flechas (+ / -)
+// =========================================================================
 function dibujarTablaCarrito() {
-    // Limpiamos la tabla por si acaso
     tablaBody.innerHTML = '';
     let sumaTotal = 0;
 
@@ -68,7 +76,6 @@ function dibujarTablaCarrito() {
         return;
     }
 
-    // Recorremos el carrito y creamos las filas de la tabla
     carrito.forEach(item => {
         const subtotal = item.precio * item.cantidad;
         sumaTotal += subtotal;
@@ -78,7 +85,24 @@ function dibujarTablaCarrito() {
         fila.innerHTML = `
             <td style="padding: 12px; font-weight: 500;">${item.titulo}</td>
             <td style="padding: 12px;">$${item.precio.toFixed(2)}</td>
-            <td style="padding: 12px;">${item.cantidad}</td>
+            
+            <!-- COLUMNA DE CANTIDAD CON FLECHAS -->
+            <td style="padding: 12px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <!-- Flecha izquierda (Restar) -->
+                    <button onclick="cambiarCantidad('${item.id}', -1)" style="background: #3498db; color: white; border: none; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-weight: bold;">
+                        ◀
+                    </button>
+                    
+                    <span style="font-weight: bold; min-width: 20px; text-align: center;">${item.cantidad}</span>
+                    
+                    <!-- Flecha derecha (Sumar) -->
+                    <button onclick="cambiarCantidad('${item.id}', 1)" style="background: #3498db; color: white; border: none; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-weight: bold;">
+                        ▶
+                    </button>
+                </div>
+            </td>
+            
             <td style="padding: 12px; font-weight: bold; color: #2c3e50;">$${subtotal.toFixed(2)}</td>
             <td style="padding: 12px;">
                 <button onclick="eliminarProducto('${item.id}')" style="background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">
@@ -89,8 +113,40 @@ function dibujarTablaCarrito() {
         tablaBody.appendChild(fila);
     });
 
-    // Actualizamos el total general en la pantalla
     totalAmount.textContent = sumaTotal.toFixed(2);
+}
+
+// =========================================================================
+// 新 NUEVA FUNCIÓN: Controla el aumento o disminución dinámica
+// =========================================================================
+function cambiarCantidad(id, cambio) {
+    const producto = carrito.find(item => item.id === id);
+    
+    if (producto) {
+        const nuevaCantidad = producto.cantidad + cambio;
+        
+        // Evitamos que baje de cero
+        if (nuevaCantidad < 0) return;
+
+        // Actualizamos la cantidad en la memoria viva (puede llegar a ser 0)
+        producto.cantidad = nuevaCantidad;
+
+        // ¡LA CLAVE! Guardamos el estado actual (incluyendo el 0) en el navegador
+        localStorage.setItem('productosCarrito', JSON.stringify(carrito));
+        
+        // Actualizamos el globito del menú y redibujamos la tabla
+        actualizarContadorVisual();
+        dibujarTablaCarrito();
+    }
+}
+
+// Función auxiliar para que el globito verde del menú también refleje el "0" temporal si corresponde
+function actualizarContadorTemporalEspecial() {
+    if (contadorCarrito) {
+        const totalPiezas = carrito.reduce((total, item) => total + item.amount, 0); // Tomará en cuenta el cero
+        const piezasFiltradas = carrito.reduce((total, item) => total + item.cantidad, 0);
+        contadorCarrito.textContent = piezasFiltradas;
+    }
 }
 
 // 7. FUNCIÓN PARA ELIMINAR ARTÍCULOS DESDE LA TABLA

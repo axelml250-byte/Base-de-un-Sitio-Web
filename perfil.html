@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiTienda | Mi Perfil</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container" style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%;">
+            <h1 class="logo">MiTienda</h1>
+            <nav class="nav-left" style="display: flex; gap: 25px;">
+                <a href="index.html">Inicio</a>
+                <a href="productos.html">Productos</a>
+                <a href="nosotros.html">Conócenos</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+            <div class="nav-right" style="display: flex; align-items: center; gap: 15px;">
+                <a href="perfil.html" class="active" style="font-weight: bold; color: #2c3e50; text-decoration: none;">👤 Mi Perfil</a>
+                <a href="carrito.html" style="color: #2ecc71; font-weight: bold; border-left: 1px solid #ddd; padding-left: 15px; text-decoration: none;">
+                    🛒 Carrito (<span id="cart-counter">0</span>)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 600px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="width: 100px; height: 100px; background: #3498db; color: white; display: flex; justify-content: center; align-items: center; font-size: 40px; border-radius: 50%; margin: 0 auto 10px;">
+                    A
+                </div>
+                <h2>Panel de Usuario</h2>
+                <p style="color: #666;">Gestiona tu información y revisa tus compras.</p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 15px; border-bottom: 1px solid #eee; padding-bottom: 25px; margin-bottom: 25px;">
+                <h3>Mis Datos</h3>
+                <p><strong>Nombre:</strong> Axel M.</p>
+                <p><strong>Correo:</strong> axel@correo.com</p>
+                <p><strong>Ubicación:</strong> Ciudad de México, MX</p>
+            </div>
+
+            <div>
+                <h3>Historial de Pedidos</h3>
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-top: 10px; border-left: 4px solid #2ecc71;">
+                    <p style="font-weight: bold; display: flex; justify-content: space-between;">
+                        <span>Pedido #1024</span>
+                        <span style="color: #2ecc71;">Entregado</span>
+                    </p>
+                    <p style="font-size: 14px; color: #666; margin-top: 5px;">1x Sudadera Urbana - Total: $599.00</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 MiTienda E-Commerce. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="carrito.js"></script>
+</body>
+</html>

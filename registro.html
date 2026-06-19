@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiTienda | Registro</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <h1 class="logo">MiTienda</h1>
+            <nav class="nav-menu">
+                <a href="index.html">Inicio</a>
+                <a href="productos.html">Productos</a>
+                <a href="nosotros.html">Conócenos</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content" style="display: flex; justify-content: center; align-items: center; min-height: 65vh;">
+        <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.05); width: 100%; max-width: 400px;">
+            <h2 style="text-align: center; margin-bottom: 20px; color: #2c3e50;">Crear Cuenta</h2>
+            
+            <form id="registro-form" style="display: flex; flex-direction: column; gap: 15px;">
+                <div style="display: flex; flex-direction: column; gap: 5px;">
+                    <label for="nombre" style="font-weight: 500;">Nombre Completo:</label>
+                    <input type="text" id="nombre" required style="padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 5px;">
+                    <label for="reg-email" style="font-weight: 500;">Correo Electrónico:</label>
+                    <input type="email" id="reg-email" required style="padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 5px;">
+                    <label for="reg-password" style="font-weight: 500;">Contraseña:</label>
+                    <input type="password" id="reg-password" required style="padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+
+                <button type="submit" class="checkout-btn" style="margin-top: 10px;">Registrarse</button>
+            </form>
+
+            <p style="text-align: center; margin-top: 20px; color: #666; font-size: 14px;">
+                ¿Ya tienes una cuenta? <a href="login.html" style="color: #2ecc71; text-decoration: none; font-weight: bold;">Inicia sesión aquí</a>
+            </p>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p class="copyright">&copy; 2026 MiTienda E-Commerce. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

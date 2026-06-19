@@ -162,23 +162,41 @@ function eliminarProducto(id) {
     dibujarTablaCarrito();
 }
 
-// 8. PREPARACIÓN PARA MERCADO PAGO
+// 8. CONTROL DE PAGO Y VENTANA MODAL DE LOGIN
 const botonCheckout = document.getElementById('checkout-btn');
-if (botonCheckout) {
+const modalLogin = document.getElementById('login-modal');
+const botonCerrarModal = document.getElementById('close-modal-btn');
+
+if (botonCheckout && modalLogin) {
+    // Al dar clic en Proceder al Pago
     botonCheckout.addEventListener('click', () => {
         if (carrito.length === 0) {
             alert("Tu carrito está vacío. Agrega productos antes de pagar.");
             return;
         }
         
-        alert("¡Conexión exitosa! En la siguiente etapa, este botón mandará los datos a tu servidor en Java/PHP para generar el link real de Mercado Pago con el total de $" + totalAmount.textContent);
-        
-        /* 
-        Nota de arquitectura para el futuro:
-        Aquí se hace un fetch() mandando el arreglo 'carrito' a tu backend.
-        Tu Backend de Java/PHP procesa los precios reales desde la base de datos, 
-        se conecta a la API de Mercado Pago y nos devuelve una URL (Preference ID).
-        Luego hacemos un: window.location.href = urlMercadoPago;
-        */
+        // Simulación: Cambia a true si quieres simular que ya inició sesión
+        const usuarioLogueado = false; 
+
+        if (!usuarioLogueado) {
+            // En lugar de un alert o un desvío directo, hacemos visible nuestro hermoso modal
+            modalLogin.style.display = 'flex';
+        } else {
+            alert("¡Usuario validado! Conectando con el servidor para procesar tu pago...");
+        }
+    });
+
+    // Al dar clic en la (X) del modal, lo ocultamos de nuevo
+    if (botonCerrarModal) {
+        botonCerrarModal.addEventListener('click', () => {
+            modalLogin.style.display = 'none';
+        });
+    }
+
+    // Opcional: Si dan clic en el fondo oscuro fuera del cuadro blanco, también se cierra
+    modalLogin.addEventListener('click', (e) => {
+        if (e.target === modalLogin) {
+            modalLogin.style.display = 'none';
+        }
     });
 }

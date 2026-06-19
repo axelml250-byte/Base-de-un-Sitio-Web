@@ -28,12 +28,13 @@ body {
 }
 
 .header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px; /* Si después decides quitar el tope, solo borras esta línea */
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%; /* Esta línea asegura que el contenedor use todo el ancho disponible */
 }
 
 .logo {
@@ -324,53 +325,63 @@ body {
 /* ==========================================
    7. RESPONSIVE DESIGN (DISEÑO PARA CELULARES)
    ========================================== */
-
-/* Esto se activará SOLO en pantallas menores a 768px de ancho */
 @media (max-width: 768px) {
     
-    /* 1. Hacemos que la cabecera se acomode en filas */
-    .header-container {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
+    /* 1. Forzamos a la cabecera a romper las 3 columnas y apilarse hacia abajo */
+    .main-header .header-container {
+        flex-direction: column !important;
+        gap: 12px !important;
+        padding: 15px !important;
+        text-align: center !important;
     }
 
-    .nav-menu {
-        display: flex;
-        flex-wrap: wrap;
+    /* 2. El menú central se expande y se centra */
+    .nav-left {
+        width: 100%;
         justify-content: center;
-        gap: 10px;
+        gap: 15px !important;
+        flex-wrap: wrap;
     }
 
-    .nav-menu a {
-        margin-right: 0; /* Quitamos el margen viejo para que no se descuadre */
-        font-size: 14px;
-        padding: 5px 10px;
+    .nav-left a {
+        font-size: 15px;
+        padding: 4px 8px;
     }
 
-    /* 2. Reducimos el tamaño de la bienvenida para que no ocupe tanta pantalla */
+    /* 3. El bloque de Login/Registro/Carrito se acomoda abajo de forma limpia */
+    .nav-right {
+        width: 100%;
+        justify-content: center;
+        gap: 12px !important;
+        border-top: 1px solid #eee;
+        padding-top: 12px;
+        flex-wrap: wrap;
+    }
+
+    /* Quitamos la línea vertical divisoria en celular para que no estorbe */
+    .nav-right a:last-child {
+        border-left: none !important;
+        padding-left: 0 !important;
+    }
+
+    /* 4. Ajustes de las secciones de contenido */
     .hero-section {
         padding: 40px 15px;
     }
 
     .hero-content h2 {
-        font-size: 28px;
+        font-size: 26px;
     }
 
-    .hero-content p {
-        font-size: 15px;
-    }
-
-    /* 3. Ajustamos las secciones de texto y la cuadrícula de misión/visión */
     .about-section, .contact-section {
         padding: 20px;
     }
 
     .values-grid {
-        grid-template-columns: 1fr !important; /* En celular, Misión va arriba y Visión abajo */
+        grid-template-columns: 1fr !important;
     }
 
-    /* 4. ¡Clave! El carrito ahora ocupará todo el ancho del celular para que sea cómodo picarle */
+    /* El carrito modal ocupará toda la pantalla móvil */
     .cart-aside {
         width: 100%;
     }

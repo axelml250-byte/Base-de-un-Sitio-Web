@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiTienda | Detalle de Producto</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <!-- CABECERA COPIADA Y CORREGIDA -->
+    <header class="main-header" style="background-color: white; border-bottom: 1px solid #eee; padding: 15px 0; width: 100%;">
+        <div class="header-container" style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 30px;">
+            <h1 class="logo" style="margin: 0; font-size: 24px; color: #2c3e50;">MiTienda</h1>
+            <nav class="nav-left" style="display: flex; gap: 25px;">
+                <a href="index.html">Inicio</a>
+                <a href="productos.html">Productos</a>
+                <a href="nosotros.html">Conócenos</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+            <div class="nav-right" style="display: flex; align-items: center; gap: 15px;">
+                <a href="login.html" id="menu-login-btn" style="font-size: 14px; color: #3498db; text-decoration: none;">Iniciar Sesión</a>
+                <a href="registro.html" id="menu-registro-btn" style="font-size: 14px; background-color: #3498db; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none;">Registrarse</a>
+                <a href="carrito.html" style="color: #2ecc71; font-weight: bold; border-left: 1px solid #ddd; padding-left: 15px; text-decoration: none;">
+                    🛒 Carrito (<span id="cart-counter">0</span>)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CUERPO DEL DETALLE -->
+    <main class="main-content" style="max-width: 1000px; margin: 40px auto; padding: 0 20px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.05);">
+            
+            <!-- Zona de Imágenes (Izquierda) -->
+            <div style="flex: 1; min-width: 300px;">
+                <!-- Imagen principal grande -->
+                <img id="detalle-img-principal" src="" alt="Producto" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 6px; border: 1px solid #eee;">
+                
+                <!-- Carrusel de imágenes secundarias miniatura -->
+                <div id="galeria-miniaturas" style="display: flex; gap: 10px; margin-top: 15px;">
+                    <!-- JS inyectará las miniaturas aquí -->
+                </div>
+            </div>
+
+            <!-- Zona de Información (Derecha) -->
+            <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 15px;">
+                <h2 id="detalle-titulo" style="font-size: 28px; color: #2c3e50;">Cargando producto...</h2>
+                <h3 id="detalle-precio" style="font-size: 24px; color: #e74c3c; font-weight: bold;">$0.00</h3>
+                
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+                
+                <h4>Especificaciones y Materiales:</h4>
+                <p id="detalle-descripcion" style="color: #666; line-height: 1.6;">Descripción detallada.</p>
+                
+                <div style="margin-top: 20px;">
+                    <!-- Botón dinámico que hereda el ID para poder comprar desde aquí -->
+                    <button id="detalle-add-btn" class="checkout-btn" style="background-color: #2ecc71; width: 100%; max-width: 250px;">
+                        🛒 Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p class="copyright">&copy; 2026 MiTienda E-Commerce. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- LÓGICA DE DETALLE INTERACTIVO -->
+    <script>
+        // Simulación de base de datos local con especificaciones completas y múltiples imágenes
+        const baseDatosProductos = {
+            "1": {
+                titulo: "Playera Confort",
+                precio: 299.00,
+                descripcion: "Nuestra Playera Confort está fabricada con algodón 100% mexicano de la más alta calidad. Ideal para climas cálidos gracias a su tejido transpirable. Costuras reforzadas en cuello y hombros para una durabilidad excepcional.",
+                imagenes: ["playera.jpg", "playera_dorso.jpg", "playera_detalle.jpg"]
+            },
+            "2": {
+                titulo: "Sudadera Urbana",
+                precio: 599.00,
+                descripcion: "Sudadera Urbana con capucha ajustable y bolsillo tipo canguro. Confeccionada con una mezcla premium de algodón y felpa térmica, ideal para las temporadas de frío intenso. Puños elásticos que mantienen el calor.",
+                imagenes: ["sudadera.jpg", "sudadera_det.jpg"]
+            }
+        };
+
+        // 1. LEER EL ID DE LA URL
+        const parametrosURL = new URLSearchParams(window.location.search);
+        const productoId = parametrosURL.get('id');
+
+        // 2. BUSCAR EL PRODUCTO EN NUESTRA BASE SIMULADA
+        const productoEncontrado = baseDatosProductos[productoId];
+
+        if (productoEncontrado) {
+            // Pintar los textos e imágenes principales
+            document.getElementById('detalle-titulo').textContent = productoEncontrado.titulo;
+            document.getElementById('detalle-precio').textContent = `$${productoEncontrado.precio.toFixed(2)}`;
+            document.getElementById('detalle-descripcion').textContent = productoEncontrado.descripcion;
+            
+            const imgPrincipal = document.getElementById('detalle-img-principal');
+            imgPrincipal.src = productoEncontrado.imagenes[0];
+
+            // Configurar el botón de agregar para que use el ID correcto
+            const btnAgregar = document.getElementById('detalle-add-btn');
+            btnAgregar.setAttribute('data-id', productoId);
+
+            // Generar las miniaturas interactivas
+            const contenedorGaleria = document.getElementById('galeria-miniaturas');
+            productoEncontrado.imagenes.forEach(urlImg => {
+                const miniatura = document.createElement('img');
+                miniatura.src = urlImg;
+                miniatura.style = "width: 70px; height: 70px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 1px solid #ccc;";
+                
+                // Evento para cambiar la foto principal al pasar el mouse o dar clic
+                miniatura.addEventListener('click', () => {
+                    imgPrincipal.src = urlImg;
+                });
+                contenedorGaleria.appendChild(miniatura);
+            });
+        } else {
+            // Si inventan un ID en la URL que no existe
+            document.getElementById('detalle-titulo').textContent = "Producto no encontrado";
+            document.getElementById('detalle-precio').style.display = 'none';
+            document.getElementById('detalle-add-btn').style.display = 'none';
+        }
+    </script>
+
+    <!-- Cargamos tu script del carrito para que el contador visual y el botón funcionen aquí también -->
+    <script src="carrito.js"></script>
+</body>
+</html>

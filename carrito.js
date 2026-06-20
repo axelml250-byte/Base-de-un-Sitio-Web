@@ -26,6 +26,7 @@ if (contenedorProductos) {
                 id: e.target.getAttribute('data-id'),
                 titulo: tarjetaProducto.querySelector('.product-title').textContent,
                 precio: parseFloat(tarjetaProducto.querySelector('.product-price').textContent.replace('$', '')),
+                imagen: tarjetaProducto.querySelector('.product-img').src, // <-- Guardamos la ruta de la foto
                 cantidad: 1
             };
 
@@ -83,28 +84,23 @@ function dibujarTablaCarrito() {
         const fila = document.createElement('tr');
         fila.style.borderBottom = '1px solid #eee';
         fila.innerHTML = `
-            <td style="padding: 12px; font-weight: 500;">${item.titulo}</td>
-            <td style="padding: 12px;">$${item.precio.toFixed(2)}</td>
-            
-            <!-- COLUMNA DE CANTIDAD CON FLECHAS -->
             <td style="padding: 12px;">
+                <img src="${item.imagen || 'playera.jpg'}" alt="${item.titulo}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; border: 1px solid #eee;">
+            </td>
+        
+            <td style="padding: 12px; font-weight: 500; vertical-align: middle;">${item.titulo}</td>
+            <td style="padding: 12px; vertical-align: middle;">$${item.precio.toFixed(2)}</td>
+        
+            <td style="padding: 12px; vertical-align: middle;">
                 <div style="display: flex; align-items: center; gap: 10px;">
-                    <!-- Flecha izquierda (Restar) -->
-                    <button onclick="cambiarCantidad('${item.id}', -1)" style="background: #3498db; color: white; border: none; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-weight: bold;">
-                        ◀
-                    </button>
-                    
+                    <button onclick="cambiarCantidad('${item.id}', -1)" style="background: #3498db; color: white; border: none; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-weight: bold;">◀</button>
                     <span style="font-weight: bold; min-width: 20px; text-align: center;">${item.cantidad}</span>
-                    
-                    <!-- Flecha derecha (Sumar) -->
-                    <button onclick="cambiarCantidad('${item.id}', 1)" style="background: #3498db; color: white; border: none; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-weight: bold;">
-                        ▶
-                    </button>
+                    <button onclick="cambiarCantidad('${item.id}', 1)" style="background: #3498db; color: white; border: none; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-weight: bold;">▶</button>
                 </div>
             </td>
-            
-            <td style="padding: 12px; font-weight: bold; color: #2c3e50;">$${subtotal.toFixed(2)}</td>
-            <td style="padding: 12px;">
+        
+            <td style="padding: 12px; font-weight: bold; color: #2c3e50; vertical-align: middle;">$${subtotal.toFixed(2)}</td>
+            <td style="padding: 12px; vertical-align: middle;">
                 <button onclick="eliminarProducto('${item.id}')" style="background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">
                     Eliminar
                 </button>

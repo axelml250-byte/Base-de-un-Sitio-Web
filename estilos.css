@@ -25,6 +25,16 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    /* Reducimos el espaciado (padding) para hacerlo más chico */
+    padding: 8px 0; 
+    
+    /* Le avisamos al navegador que este menú se va a mover con suavidad */
+    transition: transform 0.3s ease-in-out; 
+}
+
+/* Clase de control que usaremos con JS para esconder el menú hacia arriba */
+.main-header.hidden-header {
+    transform: translateY(-100%);
 }
 
 .header-container {
@@ -39,13 +49,14 @@ body {
 
 .logo {
     color: #2c3e50;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .nav-menu a {
     text-decoration: none;
     color: #555;
-    margin-right: 20px;
+    margin-right: 15px;
+    font-size: 15px;
     font-weight: 500;
     transition: color 0.3s;
 }

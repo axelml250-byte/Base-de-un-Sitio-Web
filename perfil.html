@@ -8,17 +8,20 @@
 </head>
 <body>
 
+    <!-- CABECERA LIMPIA -->
     <header class="main-header">
-        <div class="header-container" style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%;">
-            <h1 class="logo">MiTienda</h1>
-            <nav class="nav-left" style="display: flex; gap: 25px;">
+        <div class="header-container">           
+            <h1 class="logo">MiTienda</h1>        
+            <nav class="nav-left">
                 <a href="index.html">Inicio</a>
                 <a href="productos.html">Productos</a>
                 <a href="nosotros.html">Conócenos</a>
                 <a href="contacto.html">Contacto</a>
             </nav>
-            <div class="nav-right" style="display: flex; align-items: center; gap: 15px;">
-                <a href="perfil.html" class="active" style="font-weight: bold; color: #2c3e50; text-decoration: none;">👤 Mi Perfil</a>
+            <div class="nav-right">
+                <a href="login.html" id="menu-login-btn">Iniciar Sesión</a>
+                <a href="registro.html" id="menu-registro-btn">Registrarse</a>
+                <a href="perfil.html" id="menu-perfil-btn" style="display: none;">👤 Mi Perfil</a>
                 <a href="carrito.html" style="color: #2ecc71; font-weight: bold; border-left: 1px solid #ddd; padding-left: 15px; text-decoration: none;">
                     🛒 Carrito (<span id="cart-counter">0</span>)
                 </a>

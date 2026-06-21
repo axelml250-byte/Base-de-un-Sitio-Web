@@ -8,49 +8,86 @@
 </head>
 <body>
 
-    <header class="main-header" style="background-color: white; border-bottom: 1px solid #eee; padding: 15px 0; width: 100%;">
-        <div class="header-container" style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 30px;">
-        
-            <h1 class="logo" style="margin: 0; font-size: 24px; color: #2c3e50;">MiTienda</h1>
-        
-            <nav class="nav-left" style="display: flex; gap: 25px;">
-                <a href="index.html" style="text-decoration: none; color: #333; font-weight: 500;">Inicio</a>
-                <a href="productos.html" style="text-decoration: none; color: #333; font-weight: 500;">Productos</a>
-                <a href="nosotros.html" style="text-decoration: none; color: #333; font-weight: 500;">Conócenos</a>
-                <a href="contacto.html" style="text-decoration: none; color: #333; font-weight: 500;">Contacto</a>
+    <!-- CABECERA LIMPIA -->
+    <header class="main-header">
+        <div class="header-container">           
+            <h1 class="logo">MiTienda</h1>        
+            <nav class="nav-left">
+                <a href="index.html">Inicio</a>
+                <a href="productos.html">Productos</a>
+                <a href="nosotros.html">Conócenos</a>
+                <a href="contacto.html" class="active">Contacto</a>
             </nav>
-
-            <div class="nav-right" style="display: flex; align-items: center; gap: 15px;">
-                <a href="login.html" id="menu-login-btn" style="font-size: 14px; color: #3498db; text-decoration: none; font-weight: 500;">Iniciar Sesión</a>
-                <a href="registro.html" id="menu-registro-btn" style="font-size: 14px; background-color: #3498db; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-weight: 500;">Registrarse</a>
-            
-                <a href="perfil.html" id="menu-perfil-btn" style="display: none; font-size: 14px; font-weight: bold; color: #2c3e50; text-decoration: none;">👤 Mi Perfil</a>
-
+            <div class="nav-right">
+                <a href="login.html" id="menu-login-btn">Iniciar Sesión</a>
+                <a href="registro.html" id="menu-registro-btn">Registrarse</a>
+                <a href="perfil.html" id="menu-perfil-btn" style="display: none;">👤 Mi Perfil</a>
                 <a href="carrito.html" style="color: #2ecc71; font-weight: bold; border-left: 1px solid #ddd; padding-left: 15px; text-decoration: none;">
                     🛒 Carrito (<span id="cart-counter">0</span>)
                 </a>
             </div>
-
         </div>
     </header>
 
     <main class="main-content">
-        <section class="contact-section">
-            <h2>Ponte en Contacto</h2>
-            <p>Estamos aquí para escucharte. Puedes comunicarte con nosotros a través de cualquiera de nuestros canales oficiales:</p>
+        <section class="about-section"> <!-- Usamos about-section para mantener el recuadro blanco estilizado -->
+            <h2 style="color: #2c3e50; margin-bottom: 15px; border-bottom: 2px solid #3498db; display: inline-block; padding-bottom: 5px;">Ponte en Contacto</h2>
+            <p style="font-size: 16px; color: #555; margin-bottom: 30px;">Estamos aquí para escucharte. Envíanos un mensaje o comunícate por cualquiera de nuestros canales oficiales.</p>
             
-            <div class="contact-channels" style="margin: 20px 0; font-size: 16px; line-height: 2;">
-                <p><strong>📞 Teléfono:</strong> +52 55 1234 5678</p>
-                <p><strong>📧 Correo Electrónico:</strong> contacto@mitienda.com</p>
-                <p><strong>📍 Ubicación Oficina Central:</strong> Ciudad de México, México.</p>
-            </div>
+            <!-- DISEÑO EN DOS COLUMNAS -->
+            <div class="contacto-container" style="display: flex; flex-wrap: wrap; gap: 40px; margin-top: 20px;">
+                
+                <!-- COLUMNA IZQUIERDA: Datos y Mapa -->
+                <div class="contacto-info-block" style="flex: 1; min-width: 300px;">
+                    <div class="contact-channels" style="font-size: 16px; line-height: 2; color: #555; margin-bottom: 25px;">
+                        <p><strong>📞 Teléfono:</strong> +52 55 1234 5678</p>
+                        <p><strong>📧 Correo:</strong> contacto@mitienda.com</p>
+                        <p><strong>📍 Ubicación:</strong> Ciudad de México, México.</p>
+                    </div>
 
-            <!-- CONTENEDOR RESERVADO PARA GOOGLE MAPS -->
-            <div class="map-container" style="margin-top: 30px; background: #eaeaea; height: 350px; border-radius: 8px; display: flex; justify-content: center; align-items: center; border: 2px dashed #ccc;">
-                <p style="color: #666; font-weight: bold;">[ Espacio reservado para el Mapa de Google Maps ]</p>
+                    <!-- CONTENEDOR PARA GOOGLE MAPS -->
+                    <div class="map-container" style="background: #eaeaea; height: 280px; border-radius: 8px; display: flex; justify-content: center; align-items: center; border: 2px dashed #ccc;">
+                        <p style="color: #666; font-weight: bold; font-size: 14px; text-align: center; padding: 20px;">[ Espacio reservado para Google Maps ]</p>
+                    </div>
+                </div>
+
+                <!-- COLUMNA DERECHA: Formulario de Sugerencias y Preguntas -->
+                <div class="contacto-form-block" style="flex: 1; min-width: 300px; background-color: #f8f9fa; padding: 25px; border-radius: 8px; border: 1px solid #eee;">
+                    <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 18px;">Escríbenos tu duda o sugerencia</h3>
+                    
+                    <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+                        
+                        <div>
+                            <label style="display: block; font-size: 14px; font-weight: 600; color: #555; margin-bottom: 5px;">Nombre Completo:</label>
+                            <input type="text" placeholder="Ej. Juan Pérez" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-size: 14px; font-weight: 600; color: #555; margin-bottom: 5px;">Correo Electrónico:</label>
+                            <input type="email" placeholder="juan@correo.com" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-size: 14px; font-weight: 600; color: #555; margin-bottom: 5px;">Asunto:</label>
+                            <select style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; background-color: white;">
+                                <option value="pregunta">Pregunta sobre un producto</option>
+                                <option value="sugerencia">Sugerencia para la tienda</option>
+                                <option value="soporte">Soporte con mi compra / Pedido</option>
+                                <option value="otro">Otro motivo</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-size: 14px; font-weight: 600; color: #555; margin-bottom: 5px;">Mensaje:</label>
+                            <textarea rows="4" placeholder="Escribe aquí detalladamente lo que necesitas..." required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; resize: vertical;"></textarea>
+                        </div>
+
+                        <button type="submit" class="add-to-cart-btn" style="width: 100%; padding: 12px; font-size: 15px; font-weight: bold; margin-top: 5px;">Enviar Mensaje</button>
+                    </form>
+                </div>
+
             </div>
         </section>
-
     </main>
 
     <footer class="main-footer">
@@ -60,7 +97,7 @@
         <p class="copyright">&copy; 2026 MiTienda E-Commerce. Todos los derechos reservados.</p>
     </footer>
 
-    <!--Vinculamos el comportamiento del menú -->
+    <!-- Vinculamos el comportamiento ordenado del menú -->
     <script src="js/menu-animado.js"></script>
     <script src="js/carrito.js"></script>
 </body>

@@ -389,27 +389,32 @@ body {
         text-align: center !important;
     }
 
-    /* 2. El menú central se expande y se centra */
+    /* 2. El menú central se expande y se centra perfectamente */
     .nav-left {
-        width: 100%;
-        justify-content: center;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
         gap: 15px !important;
-        flex-wrap: wrap;
+        flex-wrap: wrap !important;
     }
 
+    /* 👇 ACTUALIZADO: Forzamos a quitar el margen derecho viejo que descentraba el texto */
     .nav-left a {
         font-size: 15px;
         padding: 4px 8px;
+        margin-right: 0 !important; 
+        display: inline-block !important;
     }
 
     /* 3. El bloque de Login/Registro/Carrito se acomoda abajo de forma limpia */
     .nav-right {
-        width: 100%;
-        justify-content: center;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
         gap: 12px !important;
         border-top: 1px solid #eee;
         padding-top: 12px;
-        flex-wrap: wrap;
+        flex-wrap: wrap !important;
     }
 
     /* Quitamos la línea vertical divisoria en celular para que no estorbe */

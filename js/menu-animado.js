@@ -25,3 +25,23 @@ window.addEventListener('scroll', () => {
     // Actualizamos la posición para la siguiente lectura
     ultimaPosicionScroll = posicionActualScroll;
 });
+
+// Función para abrir y cerrar el menú de las 3 rayitas
+function toggleMenuUniversal() {
+    const dropdown = document.getElementById('dropdown-universal');
+    if (dropdown.style.display === 'block') {
+        dropdown.style.display = 'none';
+    } else {
+        dropdown.style.display = 'block';
+    }
+}
+
+// Opcional: Cierra el menú si el usuario da clic en cualquier otra parte de la pantalla
+window.onclick = function(event) {
+    if (!event.target.matches('#btn-hamburguesa')) {
+        const dropdown = document.getElementById('dropdown-universal');
+        if (dropdown && dropdown.style.display === 'block') {
+            dropdown.style.display = 'none';
+        }
+    }
+}

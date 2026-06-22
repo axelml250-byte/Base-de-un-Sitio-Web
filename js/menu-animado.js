@@ -45,3 +45,39 @@ window.onclick = function(event) {
         }
     }
 }
+
+// Funcion de motor de busqueda Lupa
+function toggleBuscadorMovil(event) {
+    // Solo aplica el truco si estamos en pantallas de celular/tablet
+    if (window.innerWidth <= 768) {
+        const container = document.getElementById('search-container');
+        const input = container.querySelector('.search-input');
+
+        // Si la barra NO está abierta, detenemos el envío, la abrimos y le damos foco para escribir
+        if (!container.classList.contains('active-movil')) {
+            event.preventDefault(); // Evita que intente buscar en blanco
+            container.classList.add('active-movil');
+            input.focus();
+        } else {
+            // Si ya está abierta y el usuario vuelve a dar clic a la lupa con texto escrito...
+            if (input.value.trim() === "") {
+                // Si le dio clic pero está vacío, la cerramos de nuevo
+                event.preventDefault();
+                container.classList.remove('active-movil');
+            }
+            // Si tiene texto, no hace nada aquí y deja que proceda con la búsqueda normal
+        }
+    }
+}
+
+// Cierra el buscador móvil si das clic en cualquier otra parte fuera de la barra
+document.addEventListener('click', (event) => {
+    if (window.innerWidth <= 768) {
+        const container = document.getElementById('search-container');
+        if (container && container.classList.contains('active-movil')) {
+            if (!container.contains(event.target)) {
+                container.classList.remove('active-movil');
+            }
+        }
+    }
+});

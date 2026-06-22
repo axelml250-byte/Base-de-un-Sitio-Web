@@ -166,6 +166,75 @@ body {
     background-color: #f8f9fa;
 }
 
+/* 🔍 CONTENEDOR BASE DE BÚSQUEDA */
+.search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-input {
+    padding: 6px 30px 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 13px;
+    outline: none;
+    width: 160px;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #3498db !important;
+    width: 220px !important;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.2);
+}
+
+.search-btn {
+    position: absolute;
+    right: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+    z-index: 10;
+}
+
+/* 📱 COMPORTAMIENTO PARA CELULARES (Media Query) */
+@media (max-width: 768px) {
+    /* Por defecto, escondemos la caja de texto y solo dejamos la lupa visible flotando */
+    .search-input {
+        width: 0px !important;
+        padding: 6px 0px !important;
+        border-color: transparent !important;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    /* Cuando se activa con clic, se estira cubriendo los menús de atrás */
+    .search-container.active-movil {
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        z-index: 99;
+        background: white;
+    }
+
+    .search-container.active-movil .search-input {
+        width: 100% !important;
+        padding: 8px 35px 8px 15px !important;
+        border: 1px solid #3498db !important;
+        border-radius: 20px;
+        background: white;
+        font-size: 14px;
+    }
+    
+    .search-container.active-movil .search-btn {
+        right: 12px;
+        font-size: 16px;
+    }
+}
+
 /* ==========================================
    3. CONTENIDO PRINCIPAL Y CATÁLOGO (GRID)
    ========================================== */

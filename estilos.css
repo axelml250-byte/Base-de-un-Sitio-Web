@@ -557,3 +557,28 @@ body {
         width: 100%;
     }
 }
+
+/* 🍞 ESTILOS PARA LAS ALERTAS TOAST AUTOMÁTICAS */
+.toast-notification {
+    background-color: #2ecc71; /* Verde éxito */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: slideIn 0.3s ease, fadeOut 0.5s ease 2.5s forwards;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(120%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; transform: translateY(10px); }
+}

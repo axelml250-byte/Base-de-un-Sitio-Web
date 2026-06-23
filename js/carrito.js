@@ -49,7 +49,35 @@ function agregarAlCarrito(producto) {
     localStorage.setItem('productosCarrito', JSON.stringify(carrito));
     
     actualizarContadorVisual();
-    alert(`¡${producto.titulo} agregado al carrito!`);
+    
+    // 👇 AQUÍ QUITAMOS EL VIEJO ALERT Y LLAMAMOS A LA NOTIFICACIÓN QUE DESAPARECE
+    mostrarNotificacionToast(`¡${producto.titulo} agregado al carrito! 🛒`);
+}
+
+// 🌟 NUEVA FUNCIÓN: Crea el mensaje flotante y lo borra después de 3 segundos
+function mostrarNotificacionToast(mensaje) {
+    let contenedor = document.getElementById('toast-container');
+    
+    // Si por alguna razón se me olvidó poner el contenedor en el HTML, lo creo aquí automáticamente
+    if (!contenedor) {
+        contenedor = document.createElement('div');
+        contenedor.id = 'toast-container';
+        contenedor.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 10px;';
+        document.body.appendChild(contenedor);
+    }
+
+    // Creo el cuadrito de la notificación con la clase que ya tengo en mi CSS
+    const toast = document.createElement('div');
+    toast.className = 'toast-notification';
+    toast.textContent = mensaje;
+
+    // Lo pongo en la pantalla
+    contenedor.appendChild(toast);
+
+    // Le doy 3 segundos de vida y luego lo borro por completo para no dejar basura
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
 }
 
 // 5. FUNCIÓN PARA ACTUALIZAR EL CONTADOR DEL MENÚ
